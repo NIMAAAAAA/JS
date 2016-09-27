@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>带关闭按钮的滚动广告</title>
+<style type="text/css">
+#main{ text-align:center;}
+#float{
+	position:absolute;
+	left:30px;
+	top:60px; 
+	z-index:1;
+	}
+#close{
+	position:absolute;
+	top:60px;
+	left:134px;
+	z-index:2;
+	cursor:hand;
+}
+
+</style>
+<script>
+var adeverTop;
+var adverLeft;
+var adverObject;
+function inix(){
+	adverObject=document.getElementById("float");
+	closebtn=document.getElementById("close");
+	if(adverObject.currentStyle&&closebtn.currentStyle){
+	  adverTop=parseInt(adverObject.currentStyle.top);
+	  adverLeft=parseInt(adverObject.currentStyle.left);
+	  btnTop=parseInt(closebtn.currentStyle.top);
+	  btnLeft=parseInt(closebtn.currentStyle.left);
+	}
+	else{
+		adverTop=parseInt(document.defaultView.getComputedStyle(adverObject,null).top);
+		adverLeft=parseInt(document.defaultView.getComputedStyle(adverObject,null).left);
+		btnTop=parseInt(document.defaultView.getComputedStyle(closebtn,null).top);
+		btnLeft=parseInt(document.defaultView.getComputedStyle(closebtn,null).left);
+	}
+	
+}
+function move(){
+	adverObject.style.top=adverTop+parseInt(document.documentElement.scrollTop)+"px";
+	adverObject.style.left=adverLeft+parseInt(document.documentElement.scrollLeft)+"px";
+	closebtn.style.top=btnTop+parseInt(document.documentElement.scrollTop)+"px";
+	closebtn.style.left=btnLeft+parseInt(document.documentElement.scrollLeft)+"px";
+	}
+function hidden(){
+document.getElementById("float").style.display="none";
+document.getElementById("close").style.display="none";
+}	
+window.onload=inix;
+window.onscroll=move;	
+</script>
+</head>
+<body>
+<div id="close" onClick="hidden()"><img src="images/close.jpg"></div>
+<div id="float"><img src="images/advpic.jpg"></div>
+<div id="main"><img src="images/contentpic.jpg"></div>
+
+</body>
+</html>

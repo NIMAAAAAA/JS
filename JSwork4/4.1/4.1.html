@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+#pic{
+	text-align: center;
+	width:761px;
+	height: 389px;
+	margin: 0px auto;
+	padding: 0px;
+	}
+#btn{
+	float:left;
+	text-align:right;
+	width:761px;
+	padding-top:5px;
+	}
+</style>
+<script>
+function openwindow()
+{
+	window.status="系统当前状态：您正在注册ing";
+	if(window.screen.width == 1024 && window.screen.height == 768)
+		window.open("register.html");
+	else
+		window.alert("请先设置分辨率为 1024*768!");
+		//window.open("register.html");
+}
+function closewindow(){
+	if(window.confirm("确定要退出吗？"))
+	{
+		opener=null;
+		window.close();
+		}
+	}
+</script>
+</head>
+
+<body>
+<div id="pic"><img src="images/head.jpg" width="761" height="389" />
+<div id="btn"><form name="form1" action="" method="post">
+<input type="button" value="用户注册" name="btn1" id="btn1" onclick="openwindow()" style="margin-right:5px"  />
+&nbsp; 
+ <input type="button" value="退出" name="btn2" id="btn2"  onclick="closewindow()" style="margin-right:70px" />
+</form></div>
+<div id="footer"><img src="images/foot.jpg" width="502" height="90" /></div></div>
+</body>
+</html>

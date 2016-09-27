@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>个人博客</title>
+<link href="css/layout.css" rel="stylesheet" type="text/css" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body onload="showTime()">
+<div id="container">
+  <div id="top">
+  		<ul>
+        <li class="tdwidth"><a href="register.html">注册</a></li>
+        <li><a href="#">登录</a></li>
+        <li><a href="#">搜索</a></li>
+        <li><a href="#">留言</a></li>
+        <li><a href="photo.html">相册</a></li>
+        <li><a href="index.html">首页</a></li>    
+        <li class="liTime" id="time"> <script type='text/javascript'> showTime();</script></li>     
+      </ul>  
+  </div>
+  <div id="main">
+    <div class="left">
+		<div class="ltop">
+    		<table border='1' align='center' width='190'  cellspacing='0'>
+			<tr height="30">
+			<td align="center"colspan="7" id="data" valign="middle"></td>
+		</tr>
+<tr height="30">
+	<td align='center'>日</td>
+	<td align='center'>一</td>
+	<td align='center'>二</td>
+	<td align='center'>三</td>
+	<td align='center'>四</td>
+	<td align='center'>五</td>
+	<td align='center'>六</td>
+</tr>
+<script language="javascript">
+
+function is_leap(year) { 
+   return (year%100==0?res=(year%400==0?1:0):res=(year%4==0?1:0));
+} 
+
+function $(elementId){
+	return document.getElementById(elementId);
+}
+function showTime(){
+	var myDate=new Date();
+	var hour=myDate.getHours();
+	var minute=myDate.getMinutes();
+	var seconds=myDate.getSeconds();
+	if(hour<10){
+		hour="0"+hour;
+	}
+	if(minute<10){
+		minute="0"+minute;
+	}if(seconds<10){
+		seconds="0"+seconds;
+	}
+	document.getElementById("time").innerHTML="当前时间为："+hour+":"+minute+":"+seconds;
+	setTimeout("showTime()",1000);
+}
+/*var m_days=new Array(31,28,31,30,31,30,31,31,30,31,30,31); 
+if((ynow%4==0&&ynow%100!=0)||ynow%400==0)
+	m_day[1]=29;*/
+var nstr=new Date();
+var ynow=nstr.getFullYear();
+var mnow=nstr.getMonth(); 
+var dnow=nstr.getDate(); 
+var n1str=new Date(ynow,mnow,1); 
+
+var firstday=n1str.getDay();
+
+var m_days=new Array(31,28+is_leap(ynow),31,30,31,30,31,31,30,31,30,31); 
+
+var tr_str=Math.ceil((m_days[mnow] + firstday)/7); //表格所需要行数
+
+
+$("data").innerHTML=ynow+"年"+(mnow+1)+"月";
+for(i=0;i<tr_str;i++) { 
+   document.write("<tr height=30px>");
+   for(k=0;k<7;k++) { 
+      idx=i*7+k; 
+      date_str=idx-firstday+1;
+      (date_str<=0 || date_str>m_days[mnow]) ? date_str="&nbsp;" : date_str=idx-firstday+1;
+      date_str==dnow ? document.write ("<td align='center' bgcolor='red'>" + date_str + "</td>") : document.write ("<td align='center'>" + date_str + "</td>");
+   }
+   document.write("</tr>");
+}
+
+document.write("</table>"); 
+</script>
+</div>
+	<div class="lmid">
+    	<div class="title">
+    		<p >
+        		搜索blog文章
+        	</p>
+        </div>
+        <form  id="myform" method="post">
+        	<div class="f"><input  class="i" type="text" value="请输入关键字"></div>
+            <div><input type="submit" value="搜索"></div>
+            
+        </form>       
+    </div>
+    <div class="ldowm">
+    	<div class="title">
+    		<p style="width:190px; color:#FFF; font-size:16px ">
+        		博客基本信息
+        	</p>           
+        </div> 
+        <ul style="font-size:14px">
+ 	    <p>用户名：那一年冬天</p>
+	    <p>等 级：初来乍到</p>
+ 	    <p>威 望：10</p>
+	    <p>金 钱:25</p>
+	    <p>在线时间:714分钟</p>
+	    <p>日志总数:6</p>
+	    <p>评论数量:4</p>
+	    <p>访问次数:118</p>
+	    <p>建立时间:2006-07-14</p>
+    </ul>
+    	<div class="title">
+    		<p style="width:190px; color:#FFF; font-size:16px ">
+        		友情链接
+        	</p>
+           
+        </div> 
+    </div>
+    </div>
+    <div class="center"><img src="images/line.jpg" width="1" height="741" /></div>
+    <div class="right">
+      <div class="paddingleft">
+        <p class="wb">旅途风光</p>
+        <p><img src="images/scenery1.jpg" width="500" height="200" /></p>
+      </div>
+      <div class="line">
+          
+            <p class="wb">上海老街印象</p>
+ 
+            <p class="textRight">2011-01-28 18:16</p>
+
+            <p class="lineHeight">上海老街，又称小东门，这里曾是100年前上海开埠后最早灯火辉煌、万商云集的地方，地处上海市黄浦区老城厢，也就是小东门城门所在地。由于历史原因，城门没有被保留下来，但是老城厢环城的9扇门至今仍深深刻在上海人民心中。上海老街所在的小东门地区，原是上海对外贸易、小商品交易的重要场地，见证了上海的经济社会发展。</p>
+
+            <p class="textRight">阅读全文(27) | 回复(0) | 推送</p>
+      </div>
+      <div class="line">
+
+            <p class="wb">苏州游记之山塘</p>
+
+
+            <p class="textRight">2011-02-20 12:42</p>
+            <p class="lineHeight">山塘街位于古城苏州的西北部，东连红尘中一二等富贵风流之地阊门，西接吴中第一名胜虎丘，全长3600米，因此被称作七里山塘。山塘街始建于公元825年，为唐朝大诗人白居易来苏州担任刺史时所建。有民歌唱到上有天堂，下有苏杭。杭州有西湖，苏州有山塘。两处好地方，无限好风光。这便是对山塘街的生动写照。</p>
+            <p class="textRight">阅读全文(19) | 回复(0) | 推送</p>
+      </div>
+    </div> 
+  </div>
+  <div id="bottom">
+    <p class="textCenter">Powered by:那一年冬天</p>
+    <p class="textCenter">CopyRight©2011那一年冬天</p>
+  </div>
+</div>
+</body>
+</html>

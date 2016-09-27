@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>★☆美丽说，发现美★☆</title>
+<style>
+.pic{
+	width:1366px;
+	height:577px;
+	margin:auto;
+	}
+</style>
+<script>
+var index=0;function changTitle()
+{
+	var inder=0;
+	if(index%2 == 0)
+		document.title="★☆美丽说，发现美★☆";
+	else
+		document.title="☆★美丽说，分享美☆★";
+		index++;
+		setTimeout("changTitle()",2000);
+}
+window.onload=changTitle;
+</script>
+</head>
+
+<body><div class="pic"><img src="images/meiliMain.jpg" width="1366" height="577" /></div>
+</body>
+</html>
