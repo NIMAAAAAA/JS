@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{
+    padding：0；
+    margin：0；
+}
+#clock{
+    width:1024px;
+    height:869px;
+	margin:auto;
+    position:relative;
+}
+.pointer{
+    position:absolute;
+    bottom:424px;
+    transform-origin:50% 95%;
+    -webkit-transform-origin:50% 95%;
+}
+#houre{
+    width:10px;
+    height:160px;
+    left:510px;
+    background:black;
+}
+#minute{
+    width:6px;
+    height:210px;
+    left:511px;
+    background:gray;
+}
+#second{
+    width:3px;
+    height:300px;
+    left:512px;
+    background:red;
+}
+</style>
+</head>
+
+<body>
+<div id="clock" style="background-image:url(8565911_151609043304_2.jpg)">
+		<div id="houre" class="pointer" ></div>
+		<div id="minute" class="pointer" ></div>
+		<div id="second" class="pointer" ></div>
+</div>
+</body>
+
+<script type="text/javascript">
+setInterval(ColorNumber,1000);
+function ColorNumber(){
+    var oHoure=document.getElementById("houre");
+    var oMinute=document.getElementById("minute");
+    var oSecond=document.getElementById("second");
+    var nowTime=new Date();
+    var nowHoure=nowTime.getHours();
+    var nowMinute=nowTime.getMinutes();
+    var nowSecond=nowTime.getSeconds();
+    var houreDeg=(nowMinute/60)*30;
+    var minuteDeg=(nowSecond/60)*6;
+    oHoure.style.WebkitTransform="rotate("+ (nowHoure * 30+houreDeg) + "deg)";
+    oMinute.style.WebkitTransform="rotate("+ (nowMinute * 6+ minuteDeg) + "deg)";
+    oSecond.style.WebkitTransform="rotate("+ (nowSecond * 6) + "deg)";
+}
+</script>
+</html>
