@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+	const out_opacity = 0.4;
+	const over_opacity = 1.0;
+	$(function(){ 
+		$("div#box img").css("opacity",out_opacity)
+		.hover(
+			function(){
+				$(this).css("opacity",over_opacity);
+			},function(){
+				$(this).css("opacity",out_opacity);
+			});
+	});
+</script>
+</head>
+
+<body>
+<div id="box">
+<img src="images/image1.jpg" width="200"/>
+<img src="images/image2.jpg" width="200"/>
+<img src="images/image3.jpg" width="200"/>
+</div>
+</body>
+</html>
